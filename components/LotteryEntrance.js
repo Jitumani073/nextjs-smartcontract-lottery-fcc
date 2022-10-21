@@ -85,11 +85,11 @@ export default function LotteryEntrance() {
 
     return (
         <div className="p-5">
-            Hi from lottery entrance!
+            <h1 className="py-4 px-4 font-bold text-3xl">Lottery</h1>
             {raffleAddress ? (
                 <div>
                     <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-auto"
                         onClick={async function () {
                             await enterRaffle({
                                 onSuccess: handleSuccess,
@@ -106,13 +106,13 @@ export default function LotteryEntrance() {
                     </button>
                     <div>Entrance Fee: {ethers.utils.formatUnits(entranceFee, "ether")} ETH</div>{" "}
                     <div>
-                        Number Of Players:
+                        The current number Of Players is:
                         {` ${numPlayers} `}
                     </div>
-                    <div>Recent Winner: {recentWinner}</div>
+                    <div>The most previous winner was: {recentWinner}</div>
                 </div>
             ) : (
-                <div>No Raffle Address Detected</div>
+                <div>Please connect to a supported chain </div>
             )}
         </div>
     )
